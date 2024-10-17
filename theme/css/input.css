@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+   --post-heading-color: #3f4904;
+   --post-sm-color: #000000;
+   --heading-color: #3f4904;
+   --text-color: #000000;
+   --bg-color: #d1d5db;
+   --post-bg-color: #ffffff;
+   --tags-box-bg-color: #dcdcdc;
+   --nav-logo-color: #8d45ff;
+   --nav-logo-2-color: #738701;
+   --code-bg-color: #dcdcdc;
+   --post-tags-text-color: #3f4904;
+}
+
+/* dark mode add */
+
+html[data-theme="dark"] {
+   --post-heading-color: #d8ff00;
+   --post-sm-color: #fbffe2;
+   --heading-color: #5f7000;
+   --text-color: #f9fafb;
+   --bg-color: #0f1910;
+   --post-bg-color: #333d33;
+   --tags-box-bg-color: #97ffc3;
+   --nav-logo-color: #a972ff;
+   --nav-logo-2-color: #d8ff00;
+   --code-bg-color: #122015;
+   --post-tags-text-color: #131500;
+}
+
+
+.markdown {
+
+   @apply sm:text-lg;
+
+   ul,
+   p,
+   ol,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      @apply pb-3 pt-1;
+   }
+
+   h1,
+   h2,
+   h3 {
+      @apply text-text-post-lg font-semibold;
+   }
+
+   pre code {
+      @apply rounded-md text-[1rem];
+   }
+
+   .hljs {
+      background-color: var(--code-bg-color) !important;
+   }
+
+   strong {
+      @apply text-text-post-sm;
+   }
+
+}
+
+.animate-pulse {
+   animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+code::-webkit-scrollbar {
+   @apply h-3 w-1;
+}
+
+code::-webkit-scrollbar-track {
+   @apply rounded-b-md;
+   background-color: var(--code-bg-color);
+}
+
+code::-webkit-scrollbar-thumb {
+   @apply bg-text-post-lg rounded-md h-2;
+}

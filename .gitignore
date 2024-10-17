@@ -1,9 +1,3 @@
-blogu.exe
 build
-go.mod
-go.sum
-helpers
-main.go
-run.text
-tailwind.config.js
-theme
+tmp
+blogu.exe

@@ -1,0 +1,1 @@
+hyperfine "go run main.go build -t node" "go run main.go build -t python" "go run main.go build -t html"
