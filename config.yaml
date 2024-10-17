@@ -1,0 +1,12 @@
+settings-blog:
+  title: blogu blog
+  url: http://localhost:3000
+  description: A blog about everything
+  keywords: [go lang, JavaScript, Web Development]
+  author: Dev Gaurav Jatt
+  language: en
+
+settings-image:
+  image-path-auto: true
+  image-type: jpg
+  image-name: blogu
