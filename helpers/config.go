@@ -22,9 +22,22 @@ type SettingsImage struct {
 	ImageName     string `yaml:"image-name"`
 }
 
+type SettingsPosts struct {
+	PostsOnFeed int `yaml:"posts-on-feed"`
+}
+
+type SocialLinks struct {
+	Twitter   string `yaml:"twitter"`
+	Github    string `yaml:"github"`
+	Linkedin  string `yaml:"linkedin"`
+	Instagram string `yaml:"instagram"`
+}
+
 type Config struct {
-	Blog  SettingsBlog  `yaml:"settings-blog"`
-	Image SettingsImage `yaml:"settings-image"`
+	Blog        SettingsBlog  `yaml:"settings-blog"`
+	Image       SettingsImage `yaml:"settings-image"`
+	Posts       SettingsPosts `yaml:"settings-posts"`
+	SocialLinks SocialLinks   `yaml:"social-links"`
 }
 
 func GetConfig() (Config, error) {

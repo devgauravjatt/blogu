@@ -14,17 +14,17 @@ func HtmlServer() {
 	app.Use(logger.New())
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendFile("./build/dev/index.html")
+		return c.SendFile("./build/index.html")
 	})
 
 	app.Get("/searching", func(c *fiber.Ctx) error {
-		return c.SendFile("./build/dev/searching.html")
+		return c.SendFile("./build/searching/index.html")
 	})
 
-	app.Static("/", "./build/dev")
+	app.Static("/", "./build")
 
 	app.Get("/blog/:slug", func(c *fiber.Ctx) error {
-		return c.SendFile("./build/dev/blog/" + c.Params("slug") + ".html")
+		return c.SendFile("./build/blog/" + c.Params("slug") + "/index.html")
 	})
 
 	app.Listen(":3000")

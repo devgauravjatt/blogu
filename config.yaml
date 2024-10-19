@@ -1,5 +1,5 @@
 settings-blog:
-  title: blogu blog
+  title: dolly blog
   url: http://localhost:3000
   description: A blog about everything
   keywords: [go lang, JavaScript, Web Development]
@@ -10,3 +10,12 @@ settings-image:
   image-path-auto: true
   image-type: jpg
   image-name: blogu
+
+settings-posts:
+  posts-on-feed: 9
+
+social-links:
+  twitter: https://twitter.com/devgauravjatt
+  github: https://github.com/devgauravjatt
+  linkedin: https://www.linkedin.com/in/devgauravjatt
+  instagram: https://www.instagram.com/devgauravjatt

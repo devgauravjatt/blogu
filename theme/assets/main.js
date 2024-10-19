@@ -1,40 +1,58 @@
-const themeBtn = document.getElementById('theme-btn');
-const svgMoon = document.getElementById('svg-moon');
-const svgSun = document.getElementById('svg-sun');
-const themeLink = document.getElementById('hljs-theme');
-
-// Function to update the theme link
-function updateCodeTheme(theme) {
-   console.log('🚀  theme :- ', theme)
-   if (theme === 'dark') {
-      themeLink.href = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/a11y-dark.min.css`;
-   } else {
-      themeLink.href = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/a11y-light.min.css`;
-   }
-}
-
-// Check for dark mode preference
-const prefersDarkScheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+const userPref = window.matchMedia("(prefers-color-scheme: light)").matches
+	? "light"
+	: "dark";
+let currentTheme = localStorage.getItem("theme") ?? userPref;
+const themeBtn = document.getElementById("theme-btn");
+const svgMoon = document.getElementById("svg-moon");
+const svgSun = document.getElementById("svg-sun");
+const themeLink = document.getElementById("hljs-theme");
+const goTop = document.getElementById("goTop");
 
 // Function to change the theme
-function changeTheme(theme) {
-   const isDark = theme === 'dark';
-
-   updateCodeTheme(theme);
-
-   document.documentElement.setAttribute('data-theme', theme);
-   svgMoon.style.display = isDark ? 'none' : 'block';
-   svgSun.style.display = isDark ? 'block' : 'none';
+function changeTheme(theme, toggle = false) {
+	console.log("🚀  theme, toggle :- ", theme, toggle);
+	if (theme === "dark") {
+		themeLink.href =
+			"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/a11y-dark.min.css";
+	} else {
+		themeLink.href =
+			"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/a11y-light.min.css";
+	}
+	document.documentElement.setAttribute("data-theme", theme);
+	if (toggle) {
+		localStorage.setItem("theme", theme);
+	}
+	svgMoon.style.display = theme === "dark" ? "none" : "block";
+	svgSun.style.display = theme === "dark" ? "block" : "none";
 }
 
 // Toggle theme on button click
-themeBtn.addEventListener('click', () => {
-   const currentTheme = document.documentElement.getAttribute('data-theme') || (prefersDarkScheme ? 'dark' : 'light');
-   changeTheme(currentTheme === 'dark' ? 'light' : 'dark');
+themeBtn.addEventListener("click", () => {
+	console.log("🚀  currentTheme :- ", currentTheme);
+	const newTheme = currentTheme === "dark" ? "light" : "dark";
+	changeTheme(newTheme, true);
+	currentTheme = newTheme; // Update the currentTheme after toggling
 });
 
 // Set initial theme on page load
-window.onload = () => {
-   const initialTheme = prefersDarkScheme ? 'dark' : 'light';
-   changeTheme(initialTheme);
-};
+window.addEventListener("DOMContentLoaded", () => {
+	changeTheme(currentTheme);
+});
+
+window.addEventListener("scroll", () => {
+	if (window.scrollY > 300) {
+		goTop.style.display = "block";
+	} else {
+		goTop.style.display = "none";
+	}
+});
+
+goTop.addEventListener("click", () => {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
+});
+
+const currentYear = new Date().getFullYear();
+document.getElementById("year").innerHTML = currentYear;

@@ -1,54 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>{{ .meta.Title }}</title>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- Title -->
-   <title>{{ .meta.Title }}</title>
+    <!-- Meta Description -->
+    <meta name="description" content="{{ .meta.Description }}" />
 
-   <!-- Meta Description -->
-   <meta name="description" content="{{ .meta.Description }}">
+    <!-- Keywords (optional) -->
+    <meta name="keywords" content="{{ .meta.Keywords }}" />
 
-   <!-- Keywords (optional) -->
-   <meta name="keywords" content="{{ .meta.Keywords }}">
+    <!-- Author -->
+    <meta name="author" content="{{ .meta.Author }}" />
 
-   <!-- Author -->
-   <meta name="author" content="{{ .meta.Author }}">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ .meta.Canonical }}" />
 
-   <!-- Canonical URL -->
-   <link rel="canonical" href="{{ .meta.Canonical }}">
+    <!-- Open Graph Data -->
+    <meta property="og:title" content="{{ .meta.OpenGraph.Title }}" />
+    <meta
+      property="og:description"
+      content="{{ .meta.OpenGraph.Description }}"
+    />
+    <meta property="og:image" content="{{ .meta.OpenGraph.Image }}" />
+    <meta property="og:url" content="{{ .meta.OpenGraph.URL }}" />
+    <meta property="og:type" content="{{ .meta.OpenGraph.Type }}" />
 
-   <!-- Open Graph Data -->
-   <meta property="og:title" content="{{ .meta.OpenGraph.Title }}">
-   <meta property="og:description" content="{{ .meta.OpenGraph.Description }}">
-   <meta property="og:image" content="{{ .meta.OpenGraph.Image }}">
-   <meta property="og:url" content="{{ .meta.OpenGraph.URL }}">
-   <meta property="og:type" content="{{ .meta.OpenGraph.Type }}">
+    <!-- Twitter Card Data -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ .meta.TwitterCard.Title }}" />
+    <meta name="astro-view-transitions-enabled" content="true" />
+    <meta name="astro-view-transitions-fallback" content="animate" />
+    <meta
+      name="twitter:description"
+      content="{{ .meta.TwitterCard.Description }}"
+    />
+    <meta name="twitter:image" content="{{ .meta.TwitterCard.Image }}" />
+    <link rel="shortcut icon" href="\assets\favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="\assets\main.css?v=1" type="text/css" />
+    <link
+      rel="stylesheet"
+      id="hljs-theme"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/a11y-dark.min.css"
+    />
+  </head>
 
-   <!-- Twitter Card Data -->
-   <meta name="twitter:card" content="summary_large_image">
-   <meta name="twitter:title" content="{{ .meta.TwitterCard.Title }}">
-   <meta name="twitter:description" content="{{ .meta.TwitterCard.Description }}">
-   <meta name="twitter:image" content="{{ .meta.TwitterCard.Image }}">
-   <link rel="shortcut icon" href="\assets\favicon.ico" type="image/x-icon">
-   <link rel="stylesheet" href="\assets\main.css" type="text/css">
-   <link rel="stylesheet" id="hljs-theme"
-      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/a11y-dark.min.css">
-</head>
+  <body class="bg-bg text-text">
+    {{template "partials/header" .}} {{embed}} {{template "partials/footer" .}}
 
-<body class="bg-bg text-text">
-   {{template "partials/header" .}}
-   {{embed}}
+    <button
+      id="goTop"
+      class="fixed hidden bottom-5 right-5 rounded-full bg-text-post-lg px-4 py-2 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-violet-700 focus:ring-offset-2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-circle-arrow-up text-text-goto"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="m16 12-4-4-4 4" />
+        <path d="M12 16V8" />
+      </svg>
+    </button>
 
-   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
 
-   <!-- and it's easy to individually load additional languages -->
-   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/go.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/go.min.js"></script>
 
-   <script src="\assets\main.js?v=1"></script>
-
-   <script type="text/javascript">hljs.highlightAll();</script>
-</body>
-
+    <script src="\assets\main.js?v=1"></script>
+    <script type="text/javascript">
+      hljs.highlightAll();
+    </script>
+  </body>
 </html>

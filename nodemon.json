@@ -1,0 +1,10 @@
+{
+   "watch": [
+      "*.html"
+   ],
+   "ext": "html",
+   "ignore": [
+      "build/"
+   ],
+   "exec": "blogu.exe build && cd build && live-server --no-browser"
+}
