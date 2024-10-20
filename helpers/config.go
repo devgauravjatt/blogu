@@ -7,8 +7,14 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+type NameLogo struct {
+	First string `yaml:"first"`
+	Last  string `yaml:"last"`
+}
+
 type SettingsBlog struct {
 	Title       string   `yaml:"title"`
+	NameLogo    NameLogo `yaml:"name-logo"`
 	Url         string   `yaml:"url"`
 	Description string   `yaml:"description"`
 	Keywords    []string `yaml:"keywords"`

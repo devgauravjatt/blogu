@@ -1,3 +1,5 @@
+console.log(" 🚀  Theme is ready to use  ");
+
 const userPref = window.matchMedia("(prefers-color-scheme: light)").matches
 	? "light"
 	: "dark";
@@ -38,6 +40,8 @@ themeBtn.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", () => {
 	changeTheme(currentTheme);
 });
+
+// window listener dom reload
 
 window.addEventListener("scroll", () => {
 	if (window.scrollY > 300) {

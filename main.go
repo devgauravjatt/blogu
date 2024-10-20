@@ -17,7 +17,7 @@ var buildCmd = &cobra.Command{
 
 		fmt.Println("building website...")
 
-		err := helpers.Render()
+		err := helpers.Builder()
 		if err != nil {
 			helpers.ShowErr(err.Error())
 			os.Exit(1)
@@ -34,7 +34,7 @@ var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "Print the version number of blogu",
 	Run: func(cmd *cobra.Command, args []string) {
-		err := helpers.Render()
+		err := helpers.Builder()
 		if err != nil {
 			helpers.ShowErr(err.Error())
 			os.Exit(1)

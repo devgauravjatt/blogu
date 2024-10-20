@@ -1,5 +1,8 @@
 settings-blog:
-  title: dolly blog
+  title: Dev Blog
+  name-logo:
+    first: "Dev"
+    last: "Blog"
   url: http://localhost:3000
   description: A blog about everything
   keywords: [go lang, JavaScript, Web Development]
@@ -12,7 +15,7 @@ settings-image:
   image-name: blogu
 
 settings-posts:
-  posts-on-feed: 9
+  posts-on-feed: 8
 
 social-links:
   twitter: https://twitter.com/devgauravjatt
